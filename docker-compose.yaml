@@ -1,0 +1,42 @@
+version: '3'
+
+services: # Define a service
+  source_postgres: # Define container
+    image: postgres:9.2 # Define the image is referring to
+    ports:
+      - "5433:5432"
+    networks:
+      - elt_network # Define a network this container is belloging to
+    environment : # Env variables
+      POSTGRES_DB: source_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    volumes: # Where we wanna store the data when we close the container
+      - ./source_db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  destination_postgres: # Define container
+    image: postgres:9.2 # Define the image is referring to
+    ports:
+      - "5434:5432"
+    networks: # Define a network this container is belloging to
+      - elt_network
+    environment :
+      POSTGRES_DB: destination_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+
+  elt_script: 
+    build: 
+      context: ./elt
+      dockerfile: Dockerfile
+    command: ["python", "elt_script.py"]
+    networks: 
+      - elt_network
+    depends_on: # Wait those services are initialized. We can not transfer data if both db are not initialized.
+      - source_postgres
+      - destination_postgres
+
+
+networks: # Define the networks
+  elt_network:
+    driver: bridge # All this service refer to this network
