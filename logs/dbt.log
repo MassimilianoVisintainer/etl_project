@@ -1,0 +1,28 @@
+[0m20:53:09.829807 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020BA1FB0BF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020BA19FAF60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020BA19FBCB0>]}
+
+
+============================== 20:53:09.829807 | 76627a79-55c3-4256-a43c-0854238f0c69 ==============================
+[0m20:53:09.829807 [info ] [MainThread]: Running with dbt=1.8.0
+[0m20:53:09.829807 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\massi\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt init', 'send_anonymous_usage_stats': 'True'}
+[0m20:53:20.568517 [debug] [MainThread]: Starter project path: C:\Users\massi\OneDrive\Desktop\Personal\Dev\Projects\Data Engineer\elt\dbt-env\Lib\site-packages\dbt\include\starter_project
+[0m20:53:20.586203 [info ] [MainThread]: 
+Your new dbt project "custom_project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:53:20.586203 [info ] [MainThread]: Setting up your profile.
+[0m20:55:06.739192 [info ] [MainThread]: Profile custom_project written to C:\Users\massi\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m20:55:06.739192 [debug] [MainThread]: Command `dbt init` succeeded at 20:55:06.739192 after 117.05 seconds
+[0m20:55:06.739192 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020BA1A8A9C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020BA1FB0BF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020BA221BBF0>]}
+[0m20:55:06.739192 [debug] [MainThread]: Flushing usage events

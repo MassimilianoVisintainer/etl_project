@@ -35,6 +35,28 @@ services: # Define a service
     depends_on: # Wait those services are initialized. We can not transfer data if both db are not initialized.
       - source_postgres
       - destination_postgres
+  
+  dbt: # Add the dbt service
+    image: ghcr.io/dbt-labs/dbt-postgres:1.4.7
+    command:
+      [
+        "run", # Run the dbt run, command use to run your model on top of your destination db
+        "--profiles-dir",
+        "/root",
+        "--project-dir",
+        "/dbt",
+      ]
+    networks:
+      - elt_network
+    volumes:
+      - ./custom_project:/dbt
+      - ~/.dbt:/root
+    depends_on:
+      elt_script: 
+        condition : service_completed_successfully
+    environment:
+      DBT_PROFILE: default
+      DBT_TARGET: dev
 
 
 networks: # Define the networks
